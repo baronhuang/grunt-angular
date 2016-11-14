@@ -1,0 +1,14 @@
+<div class="note-list">
+    <h2 class="text-center text-primary">我的记事本</h2>
+    <div class="list-item" ng-repeat="item in dataList">
+        <h3>
+            <a href="#detail/{{item.id}}">{{item.title}}</a>
+            <small>{{item.id | date:'yyyy-MM-dd HH:mm:ss'}}</small>
+            <div class="btn-group btn-group-sm pull-right">
+                <a class="btn btn-sm btn-default" href="#edit/{{item.id}}">修改</a>
+                <span class="btn btn-sm btn-default" ng-click="removeNote(item.id)">删除</span>
+            </div>
+        </h3>
+        <p class="gray">{{item.content | ellipsis:10}}</p>
+    </div>
+</div>
