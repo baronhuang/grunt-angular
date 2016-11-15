@@ -10,23 +10,22 @@
             var URL = MOSIGN_CONFIG.httpUrl;
             return {
                 /*记事本列表*/
-                listNotes: function(data){
+                listNotes: function(params){
                     var method = "GET"
                         ,url = URL + 'listNotes'
-                        ,params = {};
                     return $http({method:method, url:url, params:params});
                 },
                 /*新建记事本*/
                 createNote:function(params){
                     var method = "POST"
                         ,url = URL + 'createNote';
-                    return $http({method:method, url:url, params:params});
+                    return $http({method:method, url:url, data:params});
                 },
                 /*更新记事本*/
                 updateNote:function(params){
                     var method = "POST"
                         ,url = URL + 'updateNote';
-                    return $http({method:method, url:url, params:params});
+                    return $http({method:method, url:url, data:params});
                 },
                 /*删除记事本*/
                 removeNote:function(params){

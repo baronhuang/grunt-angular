@@ -10,17 +10,20 @@
 
             $scope.listNotes = function(){
                 mosignHttp.listNotes().success(function(data){
-                    if($.isArray(data)){
-                        console.log(data)
-                        $scope.dataList = data;
+                    if(data.statusCode == 200){
+                        var data = data.data;
+                        if($.isArray(data)){
+                            console.log(data)
+                            $scope.dataList = data;
+                        }
                     }
+
                 })
             }
 
             $scope.removeNote = function(id){
                 mosignHttp.removeNote({id:id}).success(function(data){
-                    console.log(data);
-                    if(data == 0){
+                    if(data.statusCode == 200){
                         alert('删除成功！');
                         $scope.listNotes();
                     }

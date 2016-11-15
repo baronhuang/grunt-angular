@@ -10,7 +10,10 @@
         function ($scope, $routeParams, mosignHttp) {
             $scope.getNote = function(){
                 mosignHttp.getNote({id:$routeParams.id}).success(function(data){
-                    $scope.note = data;
+                    if(data.statusCode == 200){
+                        $scope.note = data.data;
+                    }
+
                 })
             }
             $scope.getNote();
